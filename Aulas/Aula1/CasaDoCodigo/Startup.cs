@@ -53,14 +53,14 @@ namespace CasaDoCodigo
 
             app.UseStaticFiles();
 
+            app.UseSession();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Pedido}/{action=Carrossel}/{codigo?}");
             });
-
-            app.UseSession();
 
             serviceProvider.GetService<IDataService>().InicializaDb();
         }
